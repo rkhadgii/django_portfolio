@@ -1,0 +1,14 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+<img src="{% static 'portfolio/mypic.jpg' %}" alt="blank" width="900px">
+<h1>My Portfolio</h1>
+{% for portfolio in portfolios %}
+<h3>{{ portfolio.title }}</h3>
+<img src="{{ portfolio.image.url }}" alt="blank" width="700px" height="700px">
+<p>{{ portfolio.description }}</p>
+{% if portfolio.url %}
+    <a href="{{ portfolio.url }}">Link</a>
+{% endif %}
+{% endfor %}
+{% endblock %}
